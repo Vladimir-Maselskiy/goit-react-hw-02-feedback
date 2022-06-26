@@ -1,7 +1,9 @@
+import { ButtonStyled } from './Button.styled';
+
 export default function Button({ name, handlerButtonClick }) {
   return (
-    <button name={name} onClick={handlerButtonClick}>
+    <ButtonStyled name={name} onClick={handlerButtonClick}>
       {name}
-    </button>
+    </ButtonStyled>
   );
 }

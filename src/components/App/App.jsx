@@ -1,11 +1,12 @@
 import { Component } from 'react';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import Statistics from './Statistics/Statistics';
-import { countPositiveFeedbackPercentage } from 'utils/countPositiveFeedbackPercentage';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import Statistics from '../Statistics/Statistics';
+import Section from '../Section/Section';
 import { countTotalFeedback } from 'utils/countTotalFeedback';
-import Section from './Section/Section';
+import { countPositiveFeedbackPercentage } from 'utils/countPositiveFeedbackPercentage';
+import { Container } from './App.styled';
 
-export class App extends Component {
+export default class App extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -20,19 +21,10 @@ export class App extends Component {
   };
 
   render() {
+    console.log('Hello World');
     const { good, neutral, bad } = this.state;
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'start',
-          alignItems: 'start',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
+      <Container>
         React homework template
         <Section
           title="Please leave feedback"
@@ -55,7 +47,7 @@ export class App extends Component {
             />
           }
         />
-      </div>
+      </Container>
     );
   }
 }
