@@ -27,7 +27,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('Hello World');
     const { good, neutral, bad } = this.state;
     return (
       <Container>
