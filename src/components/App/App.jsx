@@ -5,6 +5,7 @@ import Section from '../Section/Section';
 import { countTotalFeedback } from 'utils/countTotalFeedback';
 import { countPositiveFeedbackPercentage } from 'utils/countPositiveFeedbackPercentage';
 import { Container } from './App.styled';
+import { capitalizeName } from 'utils/capitalizeName';
 
 export default class App extends Component {
   state = {
@@ -20,6 +21,11 @@ export default class App extends Component {
     });
   };
 
+  getKeysInLoweCase() {
+    const keysOriginalCase = Object.keys(this.state);
+    return keysOriginalCase.map(key => capitalizeName(key));
+  }
+
   render() {
     console.log('Hello World');
     const { good, neutral, bad } = this.state;
@@ -30,7 +36,7 @@ export default class App extends Component {
           title="Please leave feedback"
           children={
             <FeedbackOptions
-              options={this.state}
+              options={this.getKeysInLoweCase()}
               onClick={this.handlerButtonClick}
             />
           }

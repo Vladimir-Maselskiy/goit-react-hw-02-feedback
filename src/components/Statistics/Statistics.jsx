@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import Notification from 'components/Notification/Notification';
 
 export default function Statistics(props) {
@@ -16,3 +18,11 @@ export default function Statistics(props) {
     <Notification text={'No feedback given'} />
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};

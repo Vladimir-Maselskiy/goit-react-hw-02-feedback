@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ButtonStyled } from './Button.styled';
 
 export default function Button({ name, handlerButtonClick }) {
@@ -7,3 +8,8 @@ export default function Button({ name, handlerButtonClick }) {
     </ButtonStyled>
   );
 }
+
+Button.prototype = {
+  name: PropTypes.string.isRequired,
+  handlerButtonClick: PropTypes.func.isRequired,
+};

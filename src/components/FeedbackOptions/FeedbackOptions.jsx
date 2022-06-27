@@ -1,19 +1,22 @@
+import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
 import { Feedback } from './FeedbackOptions.styled';
-import { capitalizeName } from 'utils/capitalizeName';
 
 export default function FeedbackOptions({ options, onClick }) {
-  const keysOriginalCase = Object.keys(options);
-  const keys = keysOriginalCase.map(key => capitalizeName(key));
   return (
     <Feedback>
       <ul>
-        {keys.map(key => (
-          <li key={key}>
-            <Button name={key} handlerButtonClick={onClick} />
+        {options.map(option => (
+          <li key={option}>
+            <Button name={option} handlerButtonClick={onClick} />
           </li>
         ))}
       </ul>
     </Feedback>
   );
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
